@@ -869,7 +869,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gitbeaker/core@npm:^40.1.2, @gitbeaker/core@workspace:packages/core":
+"@gitbeaker/core@npm:^40.1.2":
+  version: 40.1.2
+  resolution: "@gitbeaker/core@npm:40.1.2"
+  dependencies:
+    "@gitbeaker/requester-utils": "npm:^40.1.2"
+    qs: "npm:^6.12.2"
+    xcase: "npm:^2.0.1"
+  checksum: 10c0/c6cf651ce923ba7e92deacc09d0c1305f0383cbcbfaa0184b6f23247497e04d18a11af777eded679c9dcd8b84840de32bf2fd1519d43e501f056f3995fd59f9c
+  languageName: node
+  linkType: hard
+
+"@gitbeaker/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@gitbeaker/core@workspace:packages/core"
   dependencies:
@@ -884,7 +895,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gitbeaker/requester-utils@npm:^40.1.2, @gitbeaker/requester-utils@workspace:packages/requester-utils":
+"@gitbeaker/requester-utils@npm:^40.1.2":
+  version: 40.1.2
+  resolution: "@gitbeaker/requester-utils@npm:40.1.2"
+  dependencies:
+    picomatch-browser: "npm:^2.2.6"
+    qs: "npm:^6.12.2"
+    rate-limiter-flexible: "npm:^4.0.1"
+    xcase: "npm:^2.0.1"
+  checksum: 10c0/5a71bc5e460538de57ad828e0896337dc537dc35e989f11f0784f1b048b785d4a212db52888c8458561c71e2f772bc0ae6e40762d6e1ee562979bcd65f7e5241
+  languageName: node
+  linkType: hard
+
+"@gitbeaker/requester-utils@workspace:packages/requester-utils":
   version: 0.0.0-use.local
   resolution: "@gitbeaker/requester-utils@workspace:packages/requester-utils"
   dependencies:
@@ -898,7 +921,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gitbeaker/rest@npm:^40.1.2, @gitbeaker/rest@workspace:packages/rest":
+"@gitbeaker/rest@npm:^40.1.2":
+  version: 40.1.2
+  resolution: "@gitbeaker/rest@npm:40.1.2"
+  dependencies:
+    "@gitbeaker/core": "npm:^40.1.2"
+    "@gitbeaker/requester-utils": "npm:^40.1.2"
+  checksum: 10c0/51ff0738d90d5b5ad8afdd405936c3e811e8b4079b95a3b780f775dfc4676bb276a7511950ca07b9b61e4f826ba9e80e5f10482ec5143826e5de5ea3e3ec28de
+  languageName: node
+  linkType: hard
+
+"@gitbeaker/rest@workspace:packages/rest":
   version: 0.0.0-use.local
   resolution: "@gitbeaker/rest@workspace:packages/rest"
   dependencies:
@@ -4788,7 +4821,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-simple-import-sort@npm:^12.1.0":
+"eslint-plugin-simple-import-sort@npm:^12.1.1":
   version: 12.1.1
   resolution: "eslint-plugin-simple-import-sort@npm:12.1.1"
   peerDependencies:
@@ -5576,7 +5609,7 @@ __metadata:
     eslint: "npm:^9.6.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-jest: "npm:^28.6.0"
-    eslint-plugin-simple-import-sort: "npm:^12.1.0"
+    eslint-plugin-simple-import-sort: "npm:^12.1.1"
     eslint-plugin-sort-destructure-keys: "npm:^2.0.0"
     husky: "npm:^9.0.11"
     jest: "npm:^29.7.0"
@@ -9253,7 +9286,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:^6.12.3":
+"qs@npm:^6.12.2, qs@npm:^6.12.3":
   version: 6.12.3
   resolution: "qs@npm:6.12.3"
   dependencies:
@@ -9273,6 +9306,13 @@ __metadata:
   version: 4.0.1
   resolution: "quick-lru@npm:4.0.1"
   checksum: 10c0/f9b1596fa7595a35c2f9d913ac312fede13d37dc8a747a51557ab36e11ce113bbe88ef4c0154968845559a7709cb6a7e7cbe75f7972182451cd45e7f057a334d
+  languageName: node
+  linkType: hard
+
+"rate-limiter-flexible@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "rate-limiter-flexible@npm:4.0.1"
+  checksum: 10c0/93db9ed61a62c4d7d411713e12ed9cd7ea196a08b81cb289156f7ff0fe85bd4607916e82be750d2d8c44248dafefaff3f4a1cd4b7caae077b078573ad7f24fa6
   languageName: node
   linkType: hard
 
