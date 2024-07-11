@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   AsStream,
   GitlabAPIResponse,
@@ -8,6 +8,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 import type { CommitDiffSchema, CommitSchema, CondensedCommitSchema } from './Commits';
 
 export type ArchiveType = 'tar.gz' | 'tar.bz2' | 'tbz' | 'tbz2' | 'tb2' | 'bz2' | 'tar' | 'zip';

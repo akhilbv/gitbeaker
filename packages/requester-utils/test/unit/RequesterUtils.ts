@@ -1,13 +1,14 @@
 import { RateLimiterMemory } from 'rate-limiter-flexible';
+
 import {
-  RequestOptions,
-  ResourceOptions,
   createRateLimiters,
   createRequesterFn,
   defaultOptionsHandler,
   formatQuery,
   getMatchingRateLimiter,
   presetResourceArguments,
+  RequestOptions,
+  ResourceOptions,
 } from '../../src/RequesterUtils';
 
 jest.mock('rate-limiter-flexible');
@@ -142,9 +143,7 @@ describe('createInstance', () => {
     const testEndpoint = 'test endpoint';
     const requester = createRequesterFn(optionsHandler, requestHandler)(serviceOptions);
 
-    // eslint-disable-next-line
     for (const m of methods) {
-      // eslint-disable-next-line
       await requester[m](testEndpoint, {});
 
       expect(optionsHandler).toHaveBeenCalledWith(

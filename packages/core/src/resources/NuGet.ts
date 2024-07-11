@@ -1,6 +1,7 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type { GitlabAPIResponse, OneOf, ShowExpanded } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export interface NuGetPackageIndexSchema extends Record<string, unknown> {
   versions: string[];
@@ -68,8 +69,8 @@ export interface NuGetSearchResultsSchema extends Record<string, unknown> {
 }
 
 function url({
-  projectId,
   groupId,
+  projectId,
 }: { projectId?: string | number; groupId?: string | number } = {}): string {
   if (projectId) return endpoint`/projects/${projectId}/packages/nuget`;
   if (groupId) return endpoint`/groups/${groupId}/-/packages/nuget`;
@@ -97,8 +98,8 @@ export class NuGet<C extends boolean = false> extends BaseResource<C> {
   search<E extends boolean = false>(
     q: string,
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> & {
       skip?: number;
@@ -113,8 +114,8 @@ export class NuGet<C extends boolean = false> extends BaseResource<C> {
   showMetadata<E extends boolean = false>(
     packageName: string,
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> & ShowExpanded<E>,
   ): Promise<GitlabAPIResponse<NuGetServiceMetadataSchema, C, E, void>> {
@@ -140,8 +141,8 @@ export class NuGet<C extends boolean = false> extends BaseResource<C> {
   }
 
   showServiceIndex<E extends boolean = false>({
-    projectId,
     groupId,
+    projectId,
     ...options
   }: OneOf<{ projectId: string | number; groupId: string | number }> & ShowExpanded<E>): Promise<
     GitlabAPIResponse<NuGetServiceIndexSchema, C, E, void>
@@ -159,8 +160,8 @@ export class NuGet<C extends boolean = false> extends BaseResource<C> {
     packageName: string,
     packageVersion: string,
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> & ShowExpanded<E>,
   ): Promise<GitlabAPIResponse<NuGetServiceMetadataVersionSchema, C, E, void>> {

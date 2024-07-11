@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   MappedOmit,
@@ -8,8 +8,9 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import { SimpleUserSchema } from './Users';
+import { endpoint, RequestHelper } from '../infrastructure';
 import { MilestoneSchema } from '../templates/ResourceMilestones';
+import { SimpleUserSchema } from './Users';
 
 export interface IssueLinkSchema extends Record<string, unknown> {
   id: number;

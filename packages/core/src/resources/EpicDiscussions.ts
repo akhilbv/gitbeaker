@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceDiscussions } from '../templates';
-import type { DiscussionNoteSchema, DiscussionSchema } from '../templates/ResourceDiscussions';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -8,6 +7,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceDiscussions } from '../templates';
+import type { DiscussionNoteSchema, DiscussionSchema } from '../templates/ResourceDiscussions';
 
 export interface EpicDiscussions<C extends boolean = false> extends ResourceDiscussions<C> {
   addNote<E extends boolean = false>(

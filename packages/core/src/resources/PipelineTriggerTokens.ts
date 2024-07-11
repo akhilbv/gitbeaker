@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint, reformatObjectOptions } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   MappedOmit,
@@ -8,6 +8,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, reformatObjectOptions, RequestHelper } from '../infrastructure';
 import type { ExpandedPipelineSchema } from './Pipelines';
 import type { SimpleUserSchema } from './Users';
 

@@ -1,6 +1,7 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type { GitlabAPIResponse, ShowExpanded } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export interface ComposerV1BaseRepositorySchema extends Record<string, unknown> {
   packages?: string[];

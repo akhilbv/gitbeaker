@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
@@ -8,6 +8,7 @@ import type {
   PaginationRequestOptions,
   PaginationTypes,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 import { SimpleUserSchema } from './Users';
 
 export type AllEventOptions = {

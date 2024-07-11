@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   Camelize,
   GitlabAPIResponse,
@@ -8,6 +8,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 import type { DiscussionNotePositionSchema } from '../templates/ResourceDiscussions';
 
 export type MergeRequestDraftNotePositionSchema = DiscussionNotePositionSchema & {

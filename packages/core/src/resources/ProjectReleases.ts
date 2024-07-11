@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
@@ -9,9 +9,10 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import type { SimpleUserSchema } from './Users';
-import type { CommitSchema } from './Commits';
+import { endpoint, RequestHelper } from '../infrastructure';
 import type { MilestoneSchema } from '../templates/ResourceMilestones';
+import type { CommitSchema } from './Commits';
+import type { SimpleUserSchema } from './Users';
 
 export interface ReleaseEvidence {
   sha: string;

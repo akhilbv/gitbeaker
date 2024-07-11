@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceLabelEvents } from '../templates';
-import type { LabelEventSchema } from '../templates/ResourceLabelEvents';
+
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
@@ -9,6 +8,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceLabelEvents } from '../templates';
+import type { LabelEventSchema } from '../templates/ResourceLabelEvents';
 
 export interface EpicLabelEvents<C extends boolean = false> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(

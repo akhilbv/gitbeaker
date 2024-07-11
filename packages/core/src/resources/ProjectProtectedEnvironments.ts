@@ -1,9 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceProtectedEnvironments } from '../templates';
-import {
-  ProtectedEnvironmentAccessLevelEntity,
-  ProtectedEnvironmentSchema,
-} from '../templates/ResourceProtectedEnvironments';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -11,6 +7,11 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceProtectedEnvironments } from '../templates';
+import {
+  ProtectedEnvironmentAccessLevelEntity,
+  ProtectedEnvironmentSchema,
+} from '../templates/ResourceProtectedEnvironments';
 
 export interface ProjectProtectedEnvironments<C extends boolean = false> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(

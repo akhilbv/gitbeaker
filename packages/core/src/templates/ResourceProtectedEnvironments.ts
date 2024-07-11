@@ -1,6 +1,7 @@
-import { BaseResource } from '@gitbeaker/requester-utils';
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { RequestHelper } from '../infrastructure';
+import { BaseResource } from '@gitbeaker/requester-utils';
+
+import { AccessLevel } from '../constants';
 import type {
   GitlabAPIResponse,
   OneOf,
@@ -9,7 +10,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import { AccessLevel } from '../constants';
+import { RequestHelper } from '../infrastructure';
 
 export interface ProtectedEnvironmentAccessLevelSummarySchema {
   access_level: AccessLevel.DEVELOPER | AccessLevel.MAINTAINER | AccessLevel.ADMIN;

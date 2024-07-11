@@ -1,6 +1,7 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type { GitlabAPIResponse, ShowExpanded, Sudo } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export class ProductAnalytics<C extends boolean = false> extends BaseResource<C> {
   allFunnels<E extends boolean = false>(

@@ -1,6 +1,7 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper } from '../infrastructure';
+
 import type { GitlabAPIResponse } from '../infrastructure';
+import { RequestHelper } from '../infrastructure';
 
 export interface ProcessMetricSchema {
   hostname: string;

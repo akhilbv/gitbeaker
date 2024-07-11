@@ -1,7 +1,8 @@
-import { BaseResource } from '@gitbeaker/requester-utils';
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+import { BaseResource } from '@gitbeaker/requester-utils';
+
 import type { BaseRequestOptions, GitlabAPIResponse } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export type MetricType =
   | 'deployment_frequency'

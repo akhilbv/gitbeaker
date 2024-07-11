@@ -1,5 +1,6 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
+import { AccessLevel } from '../constants';
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -7,7 +8,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import { AccessLevel } from '../constants';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 // Documentation: https://docs.gitlab.com/ee/api/groups.html#ldap-group-links
 export class GroupLDAPLinks<C extends boolean = false> extends BaseResource<C> {

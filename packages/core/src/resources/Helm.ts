@@ -1,6 +1,7 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type { GitlabAPIResponse, ShowExpanded, Sudo } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export class Helm<C extends boolean = false> extends BaseResource<C> {
   downloadChartIndex<E extends boolean = false>(

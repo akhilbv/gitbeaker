@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   MappedOmit,
@@ -7,6 +7,7 @@ import type {
   Sudo,
   UserAgentDetailSchema,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 import type { SimpleUserSchema } from './Users';
 
 export type SnippetVisibility = 'private' | 'public' | 'internal';

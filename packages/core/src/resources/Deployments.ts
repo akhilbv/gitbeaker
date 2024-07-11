@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -7,12 +7,13 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 import type { CommitSchema } from './Commits';
-import type { PipelineSchema } from './Pipelines';
-import type { SimpleUserSchema } from './Users';
-import type { RunnerSchema } from './Runners';
 import type { EnvironmentSchema } from './Environments';
 import type { AllMergeRequestsOptions, MergeRequestSchema } from './MergeRequests';
+import type { PipelineSchema } from './Pipelines';
+import type { RunnerSchema } from './Runners';
+import type { SimpleUserSchema } from './Users';
 
 export type DeploymentStatus = 'created' | 'running' | 'success' | 'failed' | 'canceled';
 

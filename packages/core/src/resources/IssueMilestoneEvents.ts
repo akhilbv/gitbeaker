@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceMilestoneEvents } from '../templates';
-import type { MilestoneEventSchema } from '../templates/ResourceMilestoneEvents';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -8,6 +7,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceMilestoneEvents } from '../templates';
+import type { MilestoneEventSchema } from '../templates/ResourceMilestoneEvents';
 
 export interface IssueMilestoneEvents<C extends boolean = false> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(

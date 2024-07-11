@@ -1,12 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceDiscussions } from '../templates';
-import type {
-  DiscussionNotePositionOptions,
-  DiscussionNotePositionSchema,
-  DiscussionNoteSchema,
-  DiscussionSchema,
-} from '../templates/ResourceDiscussions';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   OneOf,
@@ -15,6 +8,14 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
+import { ResourceDiscussions } from '../templates';
+import type {
+  DiscussionNotePositionOptions,
+  DiscussionNotePositionSchema,
+  DiscussionNoteSchema,
+  DiscussionSchema,
+} from '../templates/ResourceDiscussions';
 
 export interface MergeRequestDiscussionNoteSchema extends DiscussionNoteSchema {
   resolved_by: string;

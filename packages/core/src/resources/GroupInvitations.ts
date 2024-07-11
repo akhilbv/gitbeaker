@@ -1,6 +1,6 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceInvitations } from '../templates';
-import type { InvitationSchema } from '../templates/ResourceInvitations';
+
+import { AccessLevel } from '../constants';
 import type {
   GitlabAPIResponse,
   OneOf,
@@ -9,7 +9,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import { AccessLevel } from '../constants';
+import { ResourceInvitations } from '../templates';
+import type { InvitationSchema } from '../templates/ResourceInvitations';
 
 export interface GroupInvitations<C extends boolean = false> {
   add<E extends boolean = false>(

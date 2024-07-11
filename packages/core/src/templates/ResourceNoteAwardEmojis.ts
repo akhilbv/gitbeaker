@@ -1,6 +1,6 @@
-import { BaseResource } from '@gitbeaker/requester-utils';
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { RequestHelper } from '../infrastructure';
+import { BaseResource } from '@gitbeaker/requester-utils';
+
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
@@ -9,6 +9,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { RequestHelper } from '../infrastructure';
 import type { AwardEmojiSchema } from './ResourceAwardEmojis';
 
 function url(

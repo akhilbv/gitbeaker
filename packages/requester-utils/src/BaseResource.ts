@@ -98,16 +98,16 @@ export class BaseResource<C extends boolean = false> {
   public readonly rejectUnauthorized: boolean;
 
   constructor({
-    sudo,
-    profileToken,
     camelize,
-    requesterFn,
-    profileMode = 'execution',
     host = 'https://gitlab.com',
     prefixUrl = '',
-    rejectUnauthorized = true,
+    profileMode = 'execution',
+    profileToken,
     queryTimeout = 300000,
     rateLimits = DEFAULT_RATE_LIMITS,
+    rejectUnauthorized = true,
+    requesterFn,
+    sudo,
     ...tokens
   }: BaseResourceOptions<C>) {
     if (!requesterFn) throw new ReferenceError('requesterFn must be passed');

@@ -1,5 +1,6 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
+import { AccessLevel } from '../constants';
 import type {
   AllOrNone,
   AsAdmin,
@@ -9,11 +10,11 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import type { ProjectSchema, ProjectStatisticsSchema, SimpleProjectSchema } from './Projects';
+import { endpoint, RequestHelper } from '../infrastructure';
+import type { CustomAttributeSchema } from '../templates/ResourceCustomAttributes';
 import type { AllEventOptions, EventSchema } from './Events';
 import type { PersonalAccessTokenSchema } from './PersonalAccessTokens';
-import type { CustomAttributeSchema } from '../templates/ResourceCustomAttributes';
-import { AccessLevel } from '../constants';
+import type { ProjectSchema, ProjectStatisticsSchema, SimpleProjectSchema } from './Projects';
 
 export interface SimpleUserSchema extends Record<string, unknown> {
   id: number;

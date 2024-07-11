@@ -1,13 +1,14 @@
-import { parse as parseQueryString } from 'qs';
-import { camelizeKeys } from 'xcase';
-import { BaseResource } from '@gitbeaker/requester-utils';
 import type {
   FormattedResponse,
   RequestHandlerFn,
   ResponseBodyTypes,
 } from '@gitbeaker/requester-utils';
-import { appendFormFromObject, parseLinkHeader } from './Utils';
+import { BaseResource } from '@gitbeaker/requester-utils';
+import { parse as parseQueryString } from 'qs';
+import { camelizeKeys } from 'xcase';
+
 import type { AllOrNone, Camelize, OptionValueType } from './Utils';
+import { appendFormFromObject, parseLinkHeader } from './Utils';
 
 export interface IsForm {
   isForm?: boolean;
@@ -147,7 +148,7 @@ function getSingle<E extends boolean>(
   response: FormattedResponse<Record<string, unknown>>,
   showExpanded?: E,
 ) {
-  const { status, headers } = response;
+  const { headers, status } = response;
   let { body } = response;
 
   // Camelize response body if specified
@@ -181,7 +182,7 @@ async function getManyMore<
   requestOptions: { maxPages?: number } & PaginationRequestOptions<P> & BaseRequestOptions<E>,
   acc?: T,
 ): Promise<PaginatedResponse<T, P> | T> {
-  const { sudo, showExpanded, maxPages, pagination, page, perPage, idAfter, orderBy, sort } =
+  const { idAfter, maxPages, orderBy, page, pagination, perPage, showExpanded, sort, sudo } =
     requestOptions;
 
   // Camelize response body if specified
@@ -279,7 +280,7 @@ export function get<
     endpoint: string,
     options?: BaseRequestOptions<E>,
   ): Promise<any> => {
-    const { asStream, sudo, showExpanded, maxPages, ...searchParams } = options || {};
+    const { asStream, maxPages, showExpanded, sudo, ...searchParams } = options || {};
     const signal = service.queryTimeout ? AbortSignal.timeout(service.queryTimeout) : undefined;
 
     const response = await service.requester.get(endpoint, {
@@ -321,7 +322,7 @@ export function post<T extends ResponseBodyTypes>() {
   return async <C extends boolean = false, E extends boolean = false>(
     service: BaseResource<C>,
     endpoint: string,
-    { searchParams, isForm, sudo, showExpanded, ...options }: IsForm & BaseRequestOptions<E> = {},
+    { isForm, searchParams, showExpanded, sudo, ...options }: IsForm & BaseRequestOptions<E> = {},
   ): Promise<GitlabAPIResponse<T, C, E, void>> => {
     const body = isForm
       ? appendFormFromObject(options as Record<string, OptionValueType>)
@@ -345,7 +346,7 @@ export function put<T extends ResponseBodyTypes>() {
   return async <C extends boolean = false, E extends boolean = false>(
     service: BaseResource<C>,
     endpoint: string,
-    { searchParams, isForm, sudo, showExpanded, ...options }: IsForm & BaseRequestOptions<E> = {},
+    { isForm, searchParams, showExpanded, sudo, ...options }: IsForm & BaseRequestOptions<E> = {},
   ): Promise<GitlabAPIResponse<T, C, E, void>> => {
     const body = isForm
       ? appendFormFromObject(options as Record<string, OptionValueType>)
@@ -369,7 +370,7 @@ export function patch<T extends ResponseBodyTypes>() {
   return async <C extends boolean = false, E extends boolean = false>(
     service: BaseResource<C>,
     endpoint: string,
-    { searchParams, isForm, sudo, showExpanded, ...options }: IsForm & BaseRequestOptions<E> = {},
+    { isForm, searchParams, showExpanded, sudo, ...options }: IsForm & BaseRequestOptions<E> = {},
   ): Promise<GitlabAPIResponse<T, C, E, void>> => {
     const body = isForm
       ? appendFormFromObject(options as Record<string, OptionValueType>)
@@ -393,7 +394,7 @@ export function del<T extends ResponseBodyTypes = void>() {
   return async <C extends boolean = false, E extends boolean = false>(
     service: BaseResource<C>,
     endpoint: string,
-    { sudo, showExpanded, searchParams, ...options }: BaseRequestOptions<E> = {},
+    { searchParams, showExpanded, sudo, ...options }: BaseRequestOptions<E> = {},
   ): Promise<GitlabAPIResponse<T, C, E, void>> => {
     const response = await service.requester.delete(endpoint, {
       body: options,

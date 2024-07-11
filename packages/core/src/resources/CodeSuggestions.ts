@@ -1,6 +1,7 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper } from '../infrastructure';
+
 import type { BaseRequestOptions, GitlabAPIResponse, ShowExpanded, Sudo } from '../infrastructure';
+import { RequestHelper } from '../infrastructure';
 
 export interface CodeSuggestionSchema extends Record<string, unknown> {
   access_token: string;

@@ -1,7 +1,8 @@
-import { BaseResource } from '@gitbeaker/requester-utils';
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+import { BaseResource } from '@gitbeaker/requester-utils';
+
 import type { GitlabAPIResponse, ShowExpanded, Sudo } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export interface PushRuleSchema extends Record<string, unknown> {
   id: number;

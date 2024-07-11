@@ -1,6 +1,7 @@
-import { BaseResource } from '@gitbeaker/requester-utils';
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+import { BaseResource } from '@gitbeaker/requester-utils';
+
+import { AccessLevel } from '../constants';
 import type {
   GitlabAPIResponse,
   OneOf,
@@ -9,7 +10,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import { AccessLevel } from '../constants';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export interface InvitationSchema extends Record<string, unknown> {
   id: number;

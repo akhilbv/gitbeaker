@@ -5,6 +5,7 @@ import {
   RequesterType,
   ResponseBodyTypes,
 } from '@gitbeaker/requester-utils';
+
 import { RequestHelper } from '../../../src/infrastructure/RequestHelper';
 
 /* eslint no-empty-pattern: 0 */
@@ -356,8 +357,8 @@ describe('RequestHelper.get()', () => {
       Promise.resolve({
         status: 200,
         body: [
-          { id: 3, gravatar_enable: true }, // eslint-disable-line
-          { id: 4, gravatar_enable: false }, // eslint-disable-line
+          { id: 3, gravatar_enable: true }, // eslint-disable-line camelcase
+          { id: 4, gravatar_enable: false }, // eslint-disable-line camelcase
         ],
         headers: {},
       }),
@@ -387,14 +388,14 @@ describe('RequestHelper.get()', () => {
     mockedRequester.get.mockReturnValueOnce(
       Promise.resolve({
         status: 200,
-        body: { id: 3, gravatar_enable: true },
+        body: { id: 3, gravatar_enable: true }, // eslint-disable-line camelcase
         headers: {},
       }),
     );
 
     const results = await specialService.show();
 
-    expect(results).toMatchObject({ id: 3, gravatar_enable: true }); // eslint-disable-line
+    expect(results).toMatchObject({ id: 3, gravatar_enable: true }); // eslint-disable-line camelcase
   });
 
   it('should return a stream if asStream is passed', async () => {

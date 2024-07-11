@@ -1,5 +1,6 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
+import { AccessLevel } from '../constants';
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -7,7 +8,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import { AccessLevel } from '../constants';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export interface SAMLGroupSchema extends Record<string, unknown> {
   name: string;

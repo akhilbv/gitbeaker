@@ -1,10 +1,11 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type { GitlabAPIResponse, OneOf, ShowExpanded } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 function url({
-  projectId,
   groupId,
+  projectId,
 }: { projectId?: string | number; groupId?: string | number } = {}): string {
   if (projectId) return endpoint`/projects/${projectId}/packages/debian`;
   if (groupId) return endpoint`/groups/${groupId}/-/packages/debian`;
@@ -20,8 +21,8 @@ export class Debian<C extends boolean = false> extends BaseResource<C> {
     component: string,
     architecture: string,
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> & ShowExpanded<E>,
   ): Promise<GitlabAPIResponse<Blob, void, E, void>> {
@@ -40,8 +41,8 @@ export class Debian<C extends boolean = false> extends BaseResource<C> {
   downloadDistributionReleaseFile<E extends boolean = false>(
     distribution: string,
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> & ShowExpanded<E>,
   ): Promise<GitlabAPIResponse<Blob, void, E, void>> {
@@ -60,8 +61,8 @@ export class Debian<C extends boolean = false> extends BaseResource<C> {
   downloadSignedDistributionReleaseFile<E extends boolean = false>(
     distribution: string,
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> & ShowExpanded<E>,
   ): Promise<GitlabAPIResponse<Blob, void, E, void>> {
@@ -80,8 +81,8 @@ export class Debian<C extends boolean = false> extends BaseResource<C> {
   downloadReleaseFileSignature<E extends boolean = false>(
     distribution: string,
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> & ShowExpanded<E>,
   ): Promise<GitlabAPIResponse<Blob, void, E, void>> {

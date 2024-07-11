@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   MappedOmit,
@@ -8,10 +8,11 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import type { SimpleUserSchema } from './Users';
-import type { AllMergeRequestsOptions, MergeRequestSchema } from './MergeRequests';
+import { endpoint, RequestHelper } from '../infrastructure';
 import type { DiscussionNoteSchema, DiscussionSchema } from '../templates/ResourceDiscussions';
+import type { AllMergeRequestsOptions, MergeRequestSchema } from './MergeRequests';
 import type { CommitablePipelineStatus } from './Pipelines';
+import type { SimpleUserSchema } from './Users';
 
 export interface CommitAction {
   /** The action to perform */

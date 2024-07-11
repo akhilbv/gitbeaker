@@ -1,14 +1,15 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type { GitlabAPIResponse, OneOf, ShowExpanded } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export class PyPI<C extends boolean = false> extends BaseResource<C> {
   downloadPackageFile<E extends boolean = false>(
     sha: string,
     fileIdentifier: string,
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> &
       ShowExpanded<E> = {} as any,
@@ -31,8 +32,8 @@ export class PyPI<C extends boolean = false> extends BaseResource<C> {
   showPackageDescriptor<E extends boolean = false>(
     packageName: string,
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> & ShowExpanded<E>,
   ): Promise<GitlabAPIResponse<string, C, E, void>> {

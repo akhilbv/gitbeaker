@@ -1,4 +1,14 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
+
+import { AccessLevel } from '../constants';
+import type {
+  GitlabAPIResponse,
+  PaginationRequestOptions,
+  PaginationTypes,
+  ShowExpanded,
+  Sudo,
+} from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 import { ResourceMembers } from '../templates';
 import type {
   AddMemeberOptions,
@@ -8,15 +18,6 @@ import type {
   MemberSchema,
   SimpleMemberSchema,
 } from '../templates/ResourceMembers';
-import { RequestHelper, endpoint } from '../infrastructure';
-import type {
-  GitlabAPIResponse,
-  PaginationRequestOptions,
-  PaginationTypes,
-  ShowExpanded,
-  Sudo,
-} from '../infrastructure';
-import { AccessLevel } from '../constants';
 
 export interface BillableGroupMemberSchema extends CondensedMemberSchema {
   last_activity_on: string;

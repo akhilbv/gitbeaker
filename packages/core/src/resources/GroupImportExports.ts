@@ -1,6 +1,7 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type { AsStream, GitlabAPIResponse, ShowExpanded, Sudo } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 import type { ImportStatusSchema } from './ProjectImportExports';
 
 export class GroupImportExports<C extends boolean = false> extends BaseResource<C> {
@@ -28,7 +29,7 @@ export class GroupImportExports<C extends boolean = false> extends BaseResource<
   import<E extends boolean = false>(
     file: { content: Blob; filename: string },
     path: string,
-    { parentId, name, ...options }: { parentId?: number; name?: string } & Sudo & ShowExpanded<E>,
+    { name, parentId, ...options }: { parentId?: number; name?: string } & Sudo & ShowExpanded<E>,
   ): Promise<GitlabAPIResponse<ImportStatusSchema, C, E, void>> {
     return RequestHelper.post<ImportStatusSchema>()(this, 'groups/import', {
       isForm: true,

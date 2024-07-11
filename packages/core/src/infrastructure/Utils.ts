@@ -1,5 +1,5 @@
-import { decamelizeKeys } from 'xcase';
 import QS from 'qs';
+import { decamelizeKeys } from 'xcase';
 
 export interface UserAgentDetailSchema extends Record<string, unknown> {
   user_agent: string;
@@ -61,7 +61,6 @@ export function parseLinkHeader(linkString: string): { next?: string; prev?: str
   const regex = /<([^>]+)>; rel="([^"]+)"/g;
   let m: RegExpExecArray | null;
 
-  // eslint-disable-next-line
   while ((m = regex.exec(linkString))) {
     const [, v, k] = m;
     output[k] = v;

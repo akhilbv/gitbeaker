@@ -1,6 +1,6 @@
-import { BaseResource } from '@gitbeaker/requester-utils';
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint, reformatObjectOptions } from '../infrastructure';
+import { BaseResource } from '@gitbeaker/requester-utils';
+
 import type {
   Camelize,
   GitlabAPIResponse,
@@ -10,6 +10,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, reformatObjectOptions, RequestHelper } from '../infrastructure';
 import type { SimpleUserSchema } from '../resources/Users';
 
 export interface DiscussionNotePositionBaseSchema extends Record<string, unknown> {

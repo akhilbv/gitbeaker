@@ -1,5 +1,6 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
+import { AccessLevel } from '../constants';
 import type {
   GitlabAPIResponse,
   OneOf,
@@ -8,7 +9,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import { AccessLevel } from '../constants';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export type ProtectedBranchAccessLevel =
   | AccessLevel.NO_ACCESS
@@ -87,7 +88,7 @@ export class ProtectedBranches<C extends boolean = false> extends BaseResource<C
     branchName: string,
     options?: CreateProtectedBranchOptions & Sudo & ShowExpanded<E>,
   ): Promise<GitlabAPIResponse<ProtectedBranchSchema, C, E, void>> {
-    const { sudo, showExpanded, ...opts } = options || {};
+    const { showExpanded, sudo, ...opts } = options || {};
 
     return RequestHelper.post<ProtectedBranchSchema>()(
       this,

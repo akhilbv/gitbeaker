@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   MappedOmit,
@@ -8,8 +8,9 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import type { SimpleUserSchema } from './Users';
+import { RequestHelper } from '../infrastructure';
 import type { SimpleProjectSchema } from './Projects';
+import type { SimpleUserSchema } from './Users';
 
 export type TodoAction =
   | 'assigned'

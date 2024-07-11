@@ -1,6 +1,6 @@
-import { BaseResource } from '@gitbeaker/requester-utils';
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+import { BaseResource } from '@gitbeaker/requester-utils';
+
 import type {
   GitlabAPIResponse,
   OneOrNoneOf,
@@ -9,8 +9,9 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import { MilestoneSchema } from './ResourceMilestones';
+import { endpoint, RequestHelper } from '../infrastructure';
 import { LabelSchema } from './ResourceLabels';
+import { MilestoneSchema } from './ResourceMilestones';
 
 export interface IssueBoardListSchema extends Record<string, unknown> {
   id: number;

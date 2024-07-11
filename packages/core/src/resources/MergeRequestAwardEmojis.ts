@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceAwardEmojis } from '../templates';
-import type { AwardEmojiSchema } from '../templates/ResourceAwardEmojis';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -8,6 +7,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceAwardEmojis } from '../templates';
+import type { AwardEmojiSchema } from '../templates/ResourceAwardEmojis';
 
 export interface MergeRequestAwardEmojis<C extends boolean = false> extends ResourceAwardEmojis<C> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(

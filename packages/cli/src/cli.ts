@@ -1,7 +1,9 @@
+import API_MAP from '@gitbeaker/core/map.json' with { type: 'json' };
+import * as Gitbeaker from '@gitbeaker/rest';
 import Chalk from 'chalk';
 import Sywac from 'sywac';
-import * as Gitbeaker from '@gitbeaker/rest';
-import API_MAP from '@gitbeaker/core/map.json' with { type: 'json' }; // eslint-disable-line import/no-unresolved
+
+import type { MethodTemplate } from './utils';
 import {
   buildArgumentObjects,
   getDisplayConfig,
@@ -9,7 +11,6 @@ import {
   getGlobalConfig,
   param,
 } from './utils';
-import type { MethodTemplate } from './utils';
 
 function setupAPIMethods(setupArgs, methodArgs: string[]) {
   methodArgs.forEach((name) => {
@@ -25,7 +26,7 @@ function setupAPIMethods(setupArgs, methodArgs: string[]) {
 function runAPIMethod(ctx, args: Record<string, string>, apiName: string, method: MethodTemplate) {
   const globalConfig = getGlobalConfig();
 
-  const { initArgs, coreArgs, optionalArgs } = buildArgumentObjects(globalConfig, method, args);
+  const { coreArgs, initArgs, optionalArgs } = buildArgumentObjects(globalConfig, method, args);
 
   // Create service
   const s = new Gitbeaker[apiName](initArgs);

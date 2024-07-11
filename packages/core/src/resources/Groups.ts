@@ -1,5 +1,6 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
+import { AccessLevel } from '../constants';
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
@@ -8,10 +9,10 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
+import type { CustomAttributeSchema } from '../templates/ResourceCustomAttributes';
 import type { CondensedProjectSchema, ProjectSchema } from './Projects';
 import type { SimpleUserSchema } from './Users';
-import type { CustomAttributeSchema } from '../templates/ResourceCustomAttributes';
-import { AccessLevel } from '../constants';
 
 export interface GroupStatisticsSchema {
   storage_size: number;

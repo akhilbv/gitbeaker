@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceIssueBoards } from '../templates';
-import { IssueBoardListSchema, IssueBoardSchema } from '../templates/ResourceIssueBoards';
+
 import type {
   GitlabAPIResponse,
   OneOrNoneOf,
@@ -9,6 +8,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceIssueBoards } from '../templates';
+import { IssueBoardListSchema, IssueBoardSchema } from '../templates/ResourceIssueBoards';
 import type { SimpleProjectSchema } from './Projects';
 
 export interface ProjectIssueBoardSchema extends IssueBoardSchema {

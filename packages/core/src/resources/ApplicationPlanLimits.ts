@@ -1,6 +1,7 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper } from '../infrastructure';
+
 import type { Camelize, GitlabAPIResponse, ShowExpanded, Sudo } from '../infrastructure';
+import { RequestHelper } from '../infrastructure';
 
 export interface ApplicationPlanLimitSchema extends Record<string, unknown> {
   ci_pipeline_size: number;
@@ -40,12 +41,12 @@ export class ApplicationPlanLimits<C extends boolean = false> extends BaseResour
     options: ApplicationPlanLimitOptions & Sudo & ShowExpanded<E> = {},
   ): Promise<GitlabAPIResponse<ApplicationPlanLimitSchema, C, E, void>> {
     const {
-      ciPipelineSize,
       ciActiveJobs,
       ciActivePipelines,
-      ciProjectSubscriptions,
-      ciPipelineSchedules,
       ciNeedsSizeLimit,
+      ciPipelineSchedules,
+      ciPipelineSize,
+      ciProjectSubscriptions,
       ciRegisteredGroupRunners,
       ciRegisteredProjectRunners,
       conanMaxFileSize,
@@ -55,8 +56,8 @@ export class ApplicationPlanLimits<C extends boolean = false> extends BaseResour
       npmMaxFileSize,
       nugetMaxFileSize,
       pypiMaxFileSize,
-      terraformModuleMaxFileSize,
       storageSizeLimit,
+      terraformModuleMaxFileSize,
       ...opts
     } = options;
 

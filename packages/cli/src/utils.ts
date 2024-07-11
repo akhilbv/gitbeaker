@@ -1,5 +1,5 @@
-import { camelize, decamelize, depascalize } from 'xcase';
 import type { Options as SywacOptions } from 'sywac';
+import { camelize, decamelize, depascalize } from 'xcase';
 
 export interface MethodTemplate {
   name: string;
@@ -173,7 +173,7 @@ export function getGlobalConfig(env = process.env): GlobalCLIConfig {
 
 export function getExposedAPIs(map: Record<string, MethodTemplate[]>) {
   // Exclude Gitlab resource and constants from exposure
-  const { Gitlab, AccessLevel, ...exposed } = map;
+  const { AccessLevel, Gitlab, ...exposed } = map;
 
   return exposed;
 }

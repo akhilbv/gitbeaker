@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceIterationEvents } from '../templates';
-import type { IterationEventSchema } from '../templates/ResourceIterationEvents';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -8,6 +7,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceIterationEvents } from '../templates';
+import type { IterationEventSchema } from '../templates/ResourceIterationEvents';
 
 export interface IssueIterationEvents<C extends boolean = false> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(

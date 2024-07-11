@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -7,6 +7,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { RequestHelper } from '../infrastructure';
 
 export interface GeoNodeSchema extends Record<string, unknown> {
   id: number;

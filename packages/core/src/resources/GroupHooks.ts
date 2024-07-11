@@ -1,10 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceHooks } from '../templates';
-import type {
-  AddResourceHookOptions,
-  EditResourceHookOptions,
-  ExpandedHookSchema,
-} from '../templates/ResourceHooks';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -12,6 +7,12 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceHooks } from '../templates';
+import type {
+  AddResourceHookOptions,
+  EditResourceHookOptions,
+  ExpandedHookSchema,
+} from '../templates/ResourceHooks';
 
 export interface GroupHookSchema extends ExpandedHookSchema {
   groupId: number;

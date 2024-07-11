@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   MappedOmit,
@@ -8,10 +8,11 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
+import type { SimpleLabelSchema } from '../templates/ResourceLabels';
+import type { GroupSchema } from './Groups';
 import type { TodoSchema } from './TodoLists';
 import type { SimpleUserSchema } from './Users';
-import type { GroupSchema } from './Groups';
-import type { SimpleLabelSchema } from '../templates/ResourceLabels';
 
 export interface EpicSchema extends Record<string, unknown> {
   id: number;

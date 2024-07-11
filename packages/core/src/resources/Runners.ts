@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
@@ -10,9 +10,10 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
+import type { CondensedGroupSchema } from './Groups';
 import type { JobSchema } from './Jobs';
 import type { SimpleProjectSchema } from './Projects';
-import type { CondensedGroupSchema } from './Groups';
 
 export interface RunnerToken extends Record<string, unknown> {
   id: number;
@@ -86,9 +87,9 @@ export type CreateRunnerOptions = {
 export class Runners<C extends boolean = false> extends BaseResource<C> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(
     {
-      projectId,
       groupId,
       owned,
+      projectId,
       ...options
     }: OneOrNoneOf<{ projectId: string | number; owned: boolean; groupId: string | number }> &
       AllRunnersOptions &

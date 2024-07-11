@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   MappedOmit,
@@ -9,6 +9,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 import type { PipelineSchema } from './Pipelines';
 
 export interface PackageSchema extends Record<string, unknown> {
@@ -49,8 +50,8 @@ export type AllPackageOptions = {
 export class Packages<C extends boolean = false> extends BaseResource<C> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> &
       AllPackageOptions &

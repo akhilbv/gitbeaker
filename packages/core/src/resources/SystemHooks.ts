@@ -1,6 +1,7 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper } from '../infrastructure';
+
 import type { GitlabAPIResponse, ShowExpanded, Sudo } from '../infrastructure';
+import { RequestHelper } from '../infrastructure';
 import type { HookSchema } from '../templates/ResourceHooks';
 
 export interface SystemHookTestResponse extends Record<string, unknown> {

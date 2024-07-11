@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceStateEvents } from '../templates';
-import type { StateEventSchema } from '../templates/ResourceStateEvents';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -8,6 +7,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceStateEvents } from '../templates';
+import type { StateEventSchema } from '../templates/ResourceStateEvents';
 
 export interface IssueStateEvents<C extends boolean = false> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(

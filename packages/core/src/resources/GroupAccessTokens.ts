@@ -1,10 +1,6 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceAccessTokens } from '../templates';
-import type {
-  AccessTokenExposedSchema,
-  AccessTokenSchema,
-  AccessTokenScopes,
-} from '../templates/ResourceAccessTokens';
+
+import { AccessLevel } from '../constants';
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -12,7 +8,12 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import { AccessLevel } from '../constants';
+import { ResourceAccessTokens } from '../templates';
+import type {
+  AccessTokenExposedSchema,
+  AccessTokenSchema,
+  AccessTokenScopes,
+} from '../templates/ResourceAccessTokens';
 
 export interface GroupAccessTokens<C extends boolean = false> extends ResourceAccessTokens<C> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(

@@ -1,10 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceBadges } from '../templates';
-import type {
-  BadgeSchema,
-  CondensedBadgeSchema,
-  EditBadgeOptions,
-} from '../templates/ResourceBadges';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -12,6 +7,12 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceBadges } from '../templates';
+import type {
+  BadgeSchema,
+  CondensedBadgeSchema,
+  EditBadgeOptions,
+} from '../templates/ResourceBadges';
 
 export interface GroupBadgeSchema extends BadgeSchema {
   kind: 'group';

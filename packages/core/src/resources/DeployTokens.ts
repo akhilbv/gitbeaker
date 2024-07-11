@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
@@ -10,6 +10,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export type DeployTokenScope =
   | 'read_repository'
@@ -31,8 +32,8 @@ export interface DeployTokenSchema extends Record<string, unknown> {
 export class DeployTokens<C extends boolean = false> extends BaseResource<C> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOrNoneOf<{ projectId: string | number; groupId: string | number }> & {
       active?: boolean;
@@ -52,8 +53,8 @@ export class DeployTokens<C extends boolean = false> extends BaseResource<C> {
     name: string,
     scopes: string[],
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> &
       Sudo &
@@ -79,8 +80,8 @@ export class DeployTokens<C extends boolean = false> extends BaseResource<C> {
   remove<E extends boolean = false>(
     tokenId: number,
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> &
       Sudo &
@@ -102,8 +103,8 @@ export class DeployTokens<C extends boolean = false> extends BaseResource<C> {
   show<E extends boolean = false>(
     tokenId: number,
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOf<{ projectId: string | number; groupId: string | number }> &
       Sudo &

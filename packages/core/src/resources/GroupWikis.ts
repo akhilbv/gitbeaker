@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceWikis } from '../templates';
-import type { WikiAttachmentSchema, WikiSchema } from '../templates/ResourceWikis';
+
 import type {
   GitlabAPIResponse,
   OneOf,
@@ -9,6 +8,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceWikis } from '../templates';
+import type { WikiAttachmentSchema, WikiSchema } from '../templates/ResourceWikis';
 
 export interface GroupWikis<C extends boolean = false> extends ResourceWikis<C> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(

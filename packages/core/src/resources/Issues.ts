@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
@@ -11,12 +11,13 @@ import type {
   Sudo,
   UserAgentDetailSchema,
 } from '../infrastructure';
-import type { SimpleUserSchema } from './Users';
-import type { MergeRequestSchema } from './MergeRequests';
-import type { TodoSchema } from './TodoLists';
-import type { MetricImageSchema } from './AlertManagement';
+import { endpoint, RequestHelper } from '../infrastructure';
 import type { SimpleLabelSchema } from '../templates/ResourceLabels';
 import type { MilestoneSchema } from '../templates/ResourceMilestones';
+import type { MetricImageSchema } from './AlertManagement';
+import type { MergeRequestSchema } from './MergeRequests';
+import type { TodoSchema } from './TodoLists';
+import type { SimpleUserSchema } from './Users';
 
 export interface TimeStatsSchema extends Record<string, unknown> {
   time_estimate: number;
@@ -208,8 +209,8 @@ export class Issues<C extends boolean = false> extends BaseResource<C> {
 
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOrNoneOf<{ projectId: string | number; groupId: string | number }> &
       PaginationRequestOptions<P> &

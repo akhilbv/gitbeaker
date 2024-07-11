@@ -1,6 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
-import type { SimpleProjectSchema } from './Projects';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -8,6 +7,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
+import type { SimpleProjectSchema } from './Projects';
 
 export interface ProjectVulnerabilitySchema extends Record<string, unknown> {
   author_id: number;

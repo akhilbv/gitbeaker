@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   MappedOmit,
@@ -8,8 +8,9 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import type { SimpleUserSchema } from './Users';
+import { endpoint, RequestHelper } from '../infrastructure';
 import type { PipelineVariableSchema } from './PipelineScheduleVariables';
+import type { SimpleUserSchema } from './Users';
 
 export type CommitablePipelineStatus = 'pending' | 'running' | 'success' | 'failed' | 'canceled';
 

@@ -1,4 +1,5 @@
 import * as coreResources from '@gitbeaker/core';
+
 import * as resources from '../../src';
 
 describe('Import', () => {

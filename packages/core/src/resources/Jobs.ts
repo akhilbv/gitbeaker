@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
@@ -9,11 +9,12 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import type { SimpleProjectSchema } from './Projects';
+import { endpoint, RequestHelper } from '../infrastructure';
 import type { CondensedCommitSchema } from './Commits';
+import type { PipelineSchema } from './Pipelines';
+import type { SimpleProjectSchema } from './Projects';
 import type { RunnerSchema } from './Runners';
 import type { ExpandedUserSchema, SimpleUserSchema } from './Users';
-import type { PipelineSchema } from './Pipelines';
 
 export type JobScope =
   | 'created'

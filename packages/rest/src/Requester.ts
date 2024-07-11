@@ -4,11 +4,11 @@ import type {
   ResponseBodyTypes,
 } from '@gitbeaker/requester-utils';
 import {
+  createRequesterFn,
+  getMatchingRateLimiter,
   GitbeakerRequestError,
   GitbeakerRetryError,
   GitbeakerTimeoutError,
-  createRequesterFn,
-  getMatchingRateLimiter,
 } from '@gitbeaker/requester-utils';
 
 export async function processBody(response: Response): Promise<ResponseBodyTypes> {
@@ -33,14 +33,14 @@ function delay(ms: number) {
 }
 
 async function parseResponse(response: Response, asStream = false) {
-  const { status, headers: rawHeaders } = response;
+  const { headers: rawHeaders, status } = response;
   const headers = Object.fromEntries(rawHeaders.entries());
   let body: ResponseBodyTypes | null;
 
   if (asStream) {
     body = response.body;
   } else {
-    body = status === 204 ? null : await processBody(response); // eslint-disable-line
+    body = status === 204 ? null : await processBody(response);
   }
 
   return { body, headers, status };
@@ -79,7 +79,7 @@ function getConditionalMode(endpoint: string) {
 export async function defaultRequestHandler(endpoint: string, options?: RequestOptions) {
   const retryCodes = [429, 502];
   const maxRetries = 10;
-  const { prefixUrl, asStream, searchParams, rateLimiters, method, ...opts } = options || {};
+  const { asStream, method, prefixUrl, rateLimiters, searchParams, ...opts } = options || {};
   const rateLimit = getMatchingRateLimiter(endpoint, rateLimiters, method);
   let baseUrl: string | undefined;
 
@@ -92,7 +92,6 @@ export async function defaultRequestHandler(endpoint: string, options?: RequestO
   // CHECKME: https://github.com/nodejs/undici/issues/1305
   const mode = getConditionalMode(endpoint);
 
-  /* eslint-disable no-await-in-loop */
   for (let i = 0; i < maxRetries; i += 1) {
     const request = new Request(url, { ...opts, method, mode });
 
@@ -112,10 +111,8 @@ export async function defaultRequestHandler(endpoint: string, options?: RequestO
     // Retry
     await delay(2 ** i * 0.25);
 
-    // eslint-disable-next-line
     continue;
   }
-  /* eslint-enable */
 
   throw new GitbeakerRetryError(
     `Could not successfully complete this request due to Error 429. Check the applicable rate limits for this endpoint.`,

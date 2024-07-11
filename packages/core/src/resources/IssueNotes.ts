@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceNotes } from '../templates';
-import type { NoteSchema } from '../templates/ResourceNotes';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -8,6 +7,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceNotes } from '../templates';
+import type { NoteSchema } from '../templates/ResourceNotes';
 
 export interface IssueNoteSchema extends NoteSchema {
   noteable_type: 'Issue';

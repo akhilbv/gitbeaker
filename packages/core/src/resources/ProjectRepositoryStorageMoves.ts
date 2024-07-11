@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceRepositoryStorageMoves } from '../templates';
-import type { RepositoryStorageMoveSchema } from '../templates/ResourceRepositoryStorageMoves';
+
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
@@ -9,6 +8,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceRepositoryStorageMoves } from '../templates';
+import type { RepositoryStorageMoveSchema } from '../templates/ResourceRepositoryStorageMoves';
 import type { SimpleProjectSchema } from './Projects';
 
 export interface ProjectRepositoryStorageMoveSchema extends RepositoryStorageMoveSchema {

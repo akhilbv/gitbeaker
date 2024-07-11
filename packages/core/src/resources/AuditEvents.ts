@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   OneOrNoneOf,
@@ -8,6 +8,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export interface AuditEventSchema extends Record<string, unknown> {
   id: number;
@@ -31,8 +32,8 @@ export interface AuditEventSchema extends Record<string, unknown> {
 }
 
 function url({
-  projectId,
   groupId,
+  projectId,
 }: { projectId?: string | number; groupId?: string | number } = {}): string {
   let prefix = '';
 
@@ -52,8 +53,8 @@ export interface AllAuditEventOptions {
 export class AuditEvents<C extends boolean = false> extends BaseResource<C> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOrNoneOf<{ projectId: string | number; groupId: string | number }> &
       AllAuditEventOptions &
@@ -73,8 +74,8 @@ export class AuditEvents<C extends boolean = false> extends BaseResource<C> {
   show<E extends boolean = false>(
     auditEventId: number,
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: OneOrNoneOf<{ projectId: string | number; groupId: string | number }> &
       Sudo &

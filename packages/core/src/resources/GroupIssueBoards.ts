@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceIssueBoards } from '../templates';
-import { IssueBoardListSchema, IssueBoardSchema } from '../templates/ResourceIssueBoards';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -8,6 +7,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceIssueBoards } from '../templates';
+import { IssueBoardListSchema, IssueBoardSchema } from '../templates/ResourceIssueBoards';
 import type { CondensedGroupSchema } from './Groups';
 
 export interface GrouptIssueBoardSchema extends IssueBoardSchema {

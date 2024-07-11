@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   OneOrNoneOf,
@@ -8,13 +8,14 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import type { ProjectSchema } from './Projects';
+import { endpoint, RequestHelper } from '../infrastructure';
+import type { MilestoneSchema } from '../templates/ResourceMilestones';
+import type { NoteSchema } from '../templates/ResourceNotes';
+import type { CommitSchema } from './Commits';
 import type { IssueSchema } from './Issues';
 import type { MergeRequestSchema } from './MergeRequests';
-import type { MilestoneSchema } from '../templates/ResourceMilestones';
+import type { ProjectSchema } from './Projects';
 import type { SimpleSnippetSchema } from './Snippets';
-import type { CommitSchema } from './Commits';
-import type { NoteSchema } from '../templates/ResourceNotes';
 import type { SimpleUserSchema } from './Users';
 
 export interface BlobSchema extends Record<string, unknown> {
@@ -160,7 +161,7 @@ export class Search<C extends boolean = false> extends BaseResource<C> {
       ShowExpanded<E> &
       PaginationRequestOptions<P>,
   ): any {
-    const { projectId, groupId, ...opts } = options || {};
+    const { groupId, projectId, ...opts } = options || {};
     let url: string;
 
     if (projectId) url = endpoint`projects/${projectId}/`;

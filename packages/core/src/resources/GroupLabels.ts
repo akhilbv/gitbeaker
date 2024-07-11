@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceLabels } from '../templates';
-import type { LabelCountSchema, LabelSchema } from '../templates/ResourceLabels';
+
 import type {
   GitlabAPIResponse,
   OneOf,
@@ -9,6 +8,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceLabels } from '../templates';
+import type { LabelCountSchema, LabelSchema } from '../templates/ResourceLabels';
 
 export interface GroupLabels<C extends boolean = false> extends ResourceLabels<C> {
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(

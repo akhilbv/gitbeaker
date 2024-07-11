@@ -1,4 +1,5 @@
 import type { RequestOptions } from '@gitbeaker/requester-utils';
+
 import { defaultRequestHandler, processBody } from '../../src/Requester';
 
 global.fetch = jest.fn();

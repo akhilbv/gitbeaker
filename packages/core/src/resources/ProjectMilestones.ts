@@ -1,11 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceMilestones } from '../templates';
-import type {
-  AllMilestonesOptions,
-  BurndownChartEventSchema,
-  MilestoneSchema,
-} from '../templates/ResourceMilestones';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -13,6 +7,13 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
+import { ResourceMilestones } from '../templates';
+import type {
+  AllMilestonesOptions,
+  BurndownChartEventSchema,
+  MilestoneSchema,
+} from '../templates/ResourceMilestones';
 import type { IssueSchema } from './Issues';
 import type { MergeRequestSchema } from './MergeRequests';
 

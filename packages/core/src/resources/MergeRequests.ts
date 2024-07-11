@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
@@ -10,15 +10,15 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
+import type { SimpleLabelSchema } from '../templates/ResourceLabels';
+import type { MilestoneSchema } from '../templates/ResourceMilestones';
 import type { CommitDiffSchema, CommitSchema } from './Commits';
 import type { IssueSchema, TimeStatsSchema } from './Issues';
 import type { ExpandedPipelineSchema, PipelineSchema } from './Pipelines';
 import type { SimpleProjectSchema } from './Projects';
 import type { TodoSchema } from './TodoLists';
 import type { SimpleUserSchema } from './Users';
-
-import type { MilestoneSchema } from '../templates/ResourceMilestones';
-import type { SimpleLabelSchema } from '../templates/ResourceLabels';
 
 // Response Schemas
 export interface DiffRefsSchema {
@@ -324,8 +324,8 @@ export class MergeRequests<C extends boolean = false> extends BaseResource<C> {
 
   all<E extends boolean = false, P extends PaginationTypes = 'offset'>(
     {
-      projectId,
       groupId,
+      projectId,
       ...options
     }: AllMergeRequestsOptions &
       OneOrNoneOf<{ projectId: string | number; groupId: string | number }> &

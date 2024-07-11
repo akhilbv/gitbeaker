@@ -1,5 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceTemplates } from '../templates';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -7,6 +7,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceTemplates } from '../templates';
 
 export interface LicenseTemplateSchema extends Record<string, unknown> {
   key: string;

@@ -1,11 +1,12 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
   PaginationRequestOptions,
   PaginationTypes,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 import type { ReleaseSchema } from './ProjectReleases';
 
 export class GroupReleases<C extends boolean = false> extends BaseResource<C> {

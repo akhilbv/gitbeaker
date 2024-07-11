@@ -1,6 +1,7 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type { GitlabAPIResponse, OneOrNoneOf, ShowExpanded, Sudo } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export type NotificationSettingLevel =
   | 'disabled'
@@ -59,8 +60,8 @@ export type EditNotificationSettingsOptions = {
 };
 
 function url({
-  projectId,
   groupId,
+  projectId,
 }: { projectId?: string | number; groupId?: string | number } = {}): string {
   let prefix = '';
 

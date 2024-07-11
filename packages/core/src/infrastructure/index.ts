@@ -1,2 +1,2 @@
-export * from './Utils';
 export * from './RequestHelper';
+export * from './Utils';

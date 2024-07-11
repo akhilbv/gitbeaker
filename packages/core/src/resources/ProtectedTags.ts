@@ -1,5 +1,6 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
+import { AccessLevel } from '../constants';
 import type {
   GitlabAPIResponse,
   OneOf,
@@ -8,7 +9,7 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import { AccessLevel } from '../constants';
+import { endpoint, RequestHelper } from '../infrastructure';
 
 export type ProtectedTagAccessLevel =
   | AccessLevel.NO_ACCESS
@@ -54,7 +55,7 @@ export class ProtectedTags<C extends boolean = false> extends BaseResource<C> {
     } & Sudo &
       ShowExpanded<E>,
   ): Promise<GitlabAPIResponse<ProtectedTagSchema, C, E, void>> {
-    const { sudo, showExpanded, ...opts } = options || {};
+    const { showExpanded, sudo, ...opts } = options || {};
 
     return RequestHelper.post<ProtectedTagSchema>()(
       this,

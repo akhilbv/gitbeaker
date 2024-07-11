@@ -1,5 +1,5 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -7,8 +7,9 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import type { CondensedGroupSchema } from './Groups';
+import { endpoint, RequestHelper } from '../infrastructure';
 import { LabelSchema } from '../templates/ResourceLabels';
+import type { CondensedGroupSchema } from './Groups';
 
 export interface GroupEpicBoardListSchema extends Record<string, unknown> {
   id: number;

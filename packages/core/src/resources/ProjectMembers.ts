@@ -1,11 +1,6 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceMembers } from '../templates';
-import type {
-  AddMemeberOptions,
-  AllMembersOptions,
-  IncludeInherited,
-  MemberSchema,
-} from '../templates/ResourceMembers';
+
+import { AccessLevel } from '../constants';
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -13,7 +8,13 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
-import { AccessLevel } from '../constants';
+import { ResourceMembers } from '../templates';
+import type {
+  AddMemeberOptions,
+  AllMembersOptions,
+  IncludeInherited,
+  MemberSchema,
+} from '../templates/ResourceMembers';
 
 export interface ProjectMembers<C extends boolean = false> extends ResourceMembers<C> {
   add<E extends boolean = false>(

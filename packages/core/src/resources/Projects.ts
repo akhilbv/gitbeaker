@@ -1,5 +1,6 @@
 import { BaseResource } from '@gitbeaker/requester-utils';
-import { RequestHelper, endpoint } from '../infrastructure';
+
+import { AccessLevel } from '../constants';
 import type {
   BaseRequestOptions,
   GitlabAPIResponse,
@@ -10,12 +11,12 @@ import type {
   SomeOf,
   Sudo,
 } from '../infrastructure';
+import { endpoint, RequestHelper } from '../infrastructure';
+import type { CustomAttributeSchema } from '../templates/ResourceCustomAttributes';
+import type { SimpleGroupSchema } from './Groups';
+import type { CondensedNamespaceSchema } from './Namespaces';
 import type { ProjectRemoteMirrorSchema } from './ProjectRemoteMirrors';
 import type { SimpleUserSchema } from './Users';
-import type { CondensedNamespaceSchema } from './Namespaces';
-import type { SimpleGroupSchema } from './Groups';
-import type { CustomAttributeSchema } from '../templates/ResourceCustomAttributes';
-import { AccessLevel } from '../constants';
 
 export type AccessLevelSettingState = 'disabled' | 'enabled' | 'private';
 
@@ -457,8 +458,8 @@ export class Projects<C extends boolean = false> extends BaseResource<C> {
 
   all<E extends boolean = false, P extends PaginationTypes = 'keyset'>(
     {
-      userId,
       starredOnly,
+      userId,
       ...options
     }: AllProjectsOptions & PaginationRequestOptions<P> & BaseRequestOptions<E> = {} as any,
   ): Promise<GitlabAPIResponse<Record<string, unknown>[], C, E, P>> {
@@ -588,8 +589,8 @@ export class Projects<C extends boolean = false> extends BaseResource<C> {
 
   create<E extends boolean = false>(
     {
-      userId,
       avatar,
+      userId,
       ...options
     }: SomeOf<{ name: string; path: string }> &
       CreateProjectOptions &

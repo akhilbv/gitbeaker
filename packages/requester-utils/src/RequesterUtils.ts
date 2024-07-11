@@ -1,7 +1,7 @@
-import { stringify } from 'qs';
-import { decamelizeKeys } from 'xcase';
-import { RateLimiterMemory, RateLimiterQueue } from 'rate-limiter-flexible';
 import Picomatch from 'picomatch-browser';
+import { stringify } from 'qs';
+import { RateLimiterMemory, RateLimiterQueue } from 'rate-limiter-flexible';
+import { decamelizeKeys } from 'xcase';
 
 const { isMatch: isGlobMatch } = Picomatch;
 
@@ -112,15 +112,15 @@ export type OptionsHandlerFn = (
 export async function defaultOptionsHandler(
   resourceOptions: ResourceOptions,
   {
-    body,
-    searchParams,
-    sudo,
-    signal,
     asStream = false,
+    body,
     method = 'GET',
+    searchParams,
+    signal,
+    sudo,
   }: DefaultRequestOptions = {},
 ): Promise<RequestOptions> {
-  const { headers: preconfiguredHeaders, authHeaders, url } = resourceOptions;
+  const { authHeaders, headers: preconfiguredHeaders, url } = resourceOptions;
   const defaultOptions: RequestOptions = {
     method,
     asStream,
@@ -201,10 +201,9 @@ export function createRequesterFn(
 function extendClass<T extends Constructable>(Base: T, customConfig: Record<string, unknown>): T {
   return class extends Base {
     constructor(...options: any[]) {
-      // eslint-disable-line
       const [config, ...opts] = options;
 
-      super({ ...customConfig, ...config }, ...opts); // eslint-disable-line
+      super({ ...customConfig, ...config }, ...opts);
     }
   };
 }

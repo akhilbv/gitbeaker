@@ -1,6 +1,5 @@
 import type { BaseResourceOptions } from '@gitbeaker/requester-utils';
-import { ResourceCustomAttributes } from '../templates';
-import type { CustomAttributeSchema } from '../templates/ResourceCustomAttributes';
+
 import type {
   GitlabAPIResponse,
   PaginationRequestOptions,
@@ -8,6 +7,8 @@ import type {
   ShowExpanded,
   Sudo,
 } from '../infrastructure';
+import { ResourceCustomAttributes } from '../templates';
+import type { CustomAttributeSchema } from '../templates/ResourceCustomAttributes';
 
 export interface ProjectCustomAttributes<C extends boolean = false>
   extends ResourceCustomAttributes<C> {
